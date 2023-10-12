@@ -25,7 +25,9 @@
     "precommit": "lint-staged",
     "stats:size": "node ./scripts/size-estimator.js",
     "test": "ava",
-    "version": "npm run clean && npm run build && npm run stats:size | tail -1 >> LIBSIZE.md && git add LIBSIZE.md"
+    "version": "npm run clean && npm run build && npm run stats:size | tail -1 >> LIBSIZE.md && git add LIBSIZE.md",
+    "release": "npm publish --registry https://npm.pkg.github.com",
+    "rollback": "npm unpublish --force --registry https://npm.pkg.github.com"
   },
   "lint-staged": {
     "src/**/*.ts": [
