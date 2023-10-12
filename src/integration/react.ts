@@ -7,6 +7,7 @@ type Props = {
   children: ReactNode | ((state: boolean) => ReactNode),
   loading: ReactNode,
   persistor: Persistor,
+  bootstrapped: boolean,
 }
 
 type State = {
@@ -17,10 +18,11 @@ export class PersistGate extends PureComponent<Props, State> {
   static defaultProps = {
     children: null,
     loading: null,
+    bootstrapped: false,
   }
 
   state = {
-    bootstrapped: false,
+    bootstrapped: this.props.bootstrapped || false,
   }
   _unsubscribe?: () => void
 
